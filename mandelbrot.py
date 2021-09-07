@@ -12,9 +12,7 @@ def mandelbrot(c):
     return n
 for x in range(w):
     for y in range(h):
-        c = complex(-2 + (x / w) * 3,
-                    -1 + (y / h) * 2)
-        m = mandelbrot(c)
-        c = 255 - int(m * 255 / 100)
+        c = complex(-2 + (x / w) * 3, -1 + (y / h) * 2)
+        c = 255 - int(mandelbrot(c) * 255 / 100)
         draw.point([x, y], (c, c, c))
 im.save('mandelbrot.png')
